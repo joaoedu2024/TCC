@@ -1,0 +1,182 @@
+    /* Estilo geral */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #F5F5F5;
+        color: #000;
+        background-image: url("../../IMAGENS/lines.png");
+        background-size: cover;
+    }
+
+    /* Cabeçalho */
+    header {
+        background-color: #fff;
+        padding: 10px 30px;
+        border-bottom: 4px solid #007bff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header img {
+        max-height: 40px;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    nav ul li a:hover {
+        color: #007bff;
+    }
+
+    /* Contêiner principal */
+    .container {
+        display: flex;
+        justify-content: space-between;
+        background-color: #ffffff;
+        margin: auto;
+        padding: 40px;
+        max-width: 1100px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Seções de Detalhes, Foto, Contato */
+    .section {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .section:last-child {
+        margin-right: 0;
+    }
+
+    .contato {
+        margin-top: 26px;
+    }
+    .section h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #000;
+    }
+
+    /* Campos de entrada de texto e seleção */
+    input[type="text"], input[type="email"], select, textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 3px solid #D1D1D1;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 14px;
+        color: #333;
+    }
+
+    textarea {
+        height: 100px;
+        resize: none;
+    }
+
+    input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    /* Upload de Foto */
+    .upload-box {
+        border: 2px dashed #CCCCCC;
+        padding: 40px;
+        text-align: center;
+        background-color: #F9F9F9;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        margin-top: 30px;
+    }
+
+    .upload-box p {
+        margin: 20px 0;
+        color: #666666;
+        font-size: 14px;
+    }
+
+    .upload-box button {
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .upload-box button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Botão Criar Oferta */
+    button.create-offer {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    button.create-offer:hover {
+        background-color: #333333;
+    }
+
+    /* Rodapé */
+    footer {
+        background-color: #ffffff;
+        padding: 30px;
+        text-align: center;
+        border-top: 1px solid #cccccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    footer .social-icons {
+        margin-bottom: 10px;
+    }
+
+    footer img {
+        margin: 0 10px;
+        cursor: pointer;
+        height: 20px;
+    }
+
+    footer p {
+        color: #666666;
+        font-size: 14px;
+        margin: 0;
+    }
+    .negrito{
+        font-weight: bold;
+    }
