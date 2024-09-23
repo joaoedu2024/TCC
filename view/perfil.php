@@ -1,11 +1,25 @@
 <?php
-    session_start();
+require_once(ROOT_PATH . 'model/conexao.php');
 
-    if (!isset($_SESSION['id'])) {
-        header("Location: /login");
-        exit();
+if (!isset($_SESSION['id_perfil'])) {
+    die("Usuário não está logado. Faça o login novamente.");
 }
-?>
+$id_usuarios = $_SESSION['id_perfil'];
+
+$sql = "SELECT p.nome, p.email, p.contato, p.cpf_cnpj, p.data_nasc, 
+               e.cep, e.estado, e.cidade, e.bairro, e.rua, e.pais
+        FROM perfil p
+        LEFT JOIN endereco e ON p.id_endereco = e.id
+        WHERE p.id_usuarios = :id_usuarios";
+$consulta = $pdo->prepare($sql);
+$consulta->bindParam(':id_usuarios', $id_usuarios);
+$consulta->execute();
+$perfil = $consulta->fetch(PDO::FETCH_ASSOC);
+
+if (!$perfil) {
+    die("Perfil não encontrado.");
+}
+?>  
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,129 +27,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Usuário</title>
-    <link rel="stylesheet" href="CSS/perfil.css">
+    <link rel="stylesheet" href="/Marketplace/view/CSS/perfil.css">
+    <script>
+        function triggerUpload() {
+            document.getElementById('uploadImage').click();
+        }
+
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                document.getElementById('profileImage').src = e.target.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 </head>
 
 <body>
+    <form action="controller/atualizar_usuario.php" method="POST">
+        <div class="container">
+            <div class="section profile-image-section">
+                <img id="profileImage" src="/Marketplace/imagens/user.png" alt="Imagem do Perfil">
+                <div class="profile-actions">
+                    <button type="button" class="atualizar" onclick="triggerUpload()">Atualizar imagem de perfil</button>
+                    <input type="file" id="uploadImage" accept="image/*" style="display: none;" onchange="previewImage(event)">
+                    <p>A imagem deve estar em JPEG ou PNG, e não pode ter mais de 10 MB.</p>
+                </div>
+            </div>
 
-    <div class="container">
-        <div class="section profile-image-section">
-            <img id="profileImage" src="../IMAGENS/user.png" alt="Imagem do Perfil">
-            <div class="profile-actions">
-                <button class="atualizar" onclick="triggerUpload()">Atualizar imagem de perfil</button>
-                <input type="file" id="uploadImage" accept="image/*" style="display: none;" onchange="previewImage(event)">
-                <p>A imagem deve estar em JPEG ou PNG, e não pode ter mais de 10 MB.</p>
+            <div class="section">
+                <h2>Localização</h2>
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" value="<?= htmlspecialchars($perfil['cep']) ?>">
+                <label for="estado">Estado</label>
+                <input type="text" id="estado" name="estado" value="<?= htmlspecialchars($perfil['estado']) ?>">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" value="<?= htmlspecialchars($perfil['cidade']) ?>">
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" name="bairro" value="<?= htmlspecialchars($perfil['bairro']) ?>">
+                <label for="rua">Rua</label>
+                <input type="text" id="rua" name="rua" value="<?= htmlspecialchars($perfil['rua']) ?>">
+                <label for="pais">País</label>
+                <input type="text" id="pais" name="pais" value="<?= htmlspecialchars($perfil['pais']) ?>">
+            </div>
+
+
+            <div class="section">
+                <h2>Configurações de perfil</h2>
+                <p>Alterar detalhes de identificação da sua conta</p>
+                <label for="usuario">Usuário</label>
+                <input type="text" id="usuario" name="usuario" value="<?= htmlspecialchars($perfil['nome']) ?>">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="<?= htmlspecialchars($perfil['email']) ?>">
+                <label for="contato">Contato</label>
+                <input type="text" id="contato" name="contato" value="<?= htmlspecialchars($perfil['contato']) ?>">
+                <label for="cpf_cnpj">CPF/CNPJ</label>
+                <input type="text" id="cpf_cnpj" name="cpf_cnpj" value="<?= htmlspecialchars($perfil['cpf_cnpj']) ?>">
+                <button class="save-changes" type="submit">Salvar alterações</button>
             </div>
         </div>
-
-        <div class="section">
-            <h2>Localização</h2>
-
-            <label for="cep">CEP</label>
-            <input type="text" id="cep" name="cep">
-            <label for="estado">Estado</label>
-            <input type="text" id="estado" name="estado">
-            <label for="cidade">Cidade</label>
-            <input type="text" id="cidade" name="cidade">
-            <label for="bairro">Bairro</label>
-            <input type="text" id="bairro" name="bairro">
-            <label for="rua">Rua</label>
-            <input type="text" id="rua" name="rua">
-            <label for="pais">País</label>
-            <input type="text" id="pais" name="pais">
-        </div>
-
-        <div class="section">
-            <h2>Configurações de perfil</h2>
-            <p>Alterar detalhes de identificação da sua conta</p>
-            <label for="usuario">Usuário</label>
-            <input type="text" id="usuario" name="usuario">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email">
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha">
-            <label for="contato">Contato</label>
-            <input type="text" id="contato" name="contato">
-            <label for="cpf_cnpj">CPF/CNPJ</label>
-            <input type="text" id="cpf_cnpj" name="cpf_cnpj">
-            <button class="save-changes" onclick="saveChanges()">Salvar alterações</button>
-        </div>
-    </div>
-
-    <script>
-        /* Função para salvar as mudanças */
-        function saveChanges() {
-            const usuario = document.getElementById("usuario").value;
-            const email = document.getElementById("email").value;
-            const senha = document.getElementById("senha").value;
-            const contato = document.getElementById("contato").value;
-            const cpf_cnpj = document.getElementById("cpf_cnpj").value;
-            const cep = document.getElementById("cep").value;
-            const estado = document.getElementById("estado").value;
-            const cidade = document.getElementById("cidade").value;
-            const bairro = document.getElementById("bairro").value;
-            const rua = document.getElementById("rua").value;
-            const pais = document.getElementById("pais").value;
-
-            /* Salvando os valores no localStorage */
-            localStorage.setItem('usuario', usuario);
-            localStorage.setItem('email', email);
-            localStorage.setItem('senha', senha);
-            localStorage.setItem('contato', contato);
-            localStorage.setItem('cpf_cnpj', cpf_cnpj);
-            localStorage.setItem('cep', cep);
-            localStorage.setItem('estado', estado);
-            localStorage.setItem('cidade', cidade);
-            localStorage.setItem('bairro', bairro);
-            localStorage.setItem('rua', rua);
-            localStorage.setItem('pais', pais);
-
-            alert("Alterações salvas com sucesso!");
-        }
-
-        function loadSavedData() {
-            if (localStorage.getItem('profileImage')) {
-                document.getElementById('profileImage').src = localStorage.getItem('profileImage');
-            }
-            if (localStorage.getItem('usuario')) {
-                document.getElementById('usuario').value = localStorage.getItem('usuario');
-            }
-            if (localStorage.getItem('email')) {
-                document.getElementById('email').value = localStorage.getItem('email');
-            }
-            if (localStorage.getItem('senha')) {
-                document.getElementById('senha').value = localStorage.getItem('senha');
-            }
-            if (localStorage.getItem('contato')) {
-                document.getElementById('contato').value = localStorage.getItem('contato');
-            }
-            if (localStorage.getItem('cpf_cnpj')) {
-                document.getElementById('cpf_cnpj').value = localStorage.getItem('cpf_cnpj');
-            }
-            if (localStorage.getItem('cep')) {
-                document.getElementById('cep').value = localStorage.getItem('cep');
-            }
-            if (localStorage.getItem('estado')) {
-                document.getElementById('estado').value = localStorage.getItem('estado');
-            }
-            if (localStorage.getItem('cidade')) {
-                document.getElementById('cidade').value = localStorage.getItem('cidade');
-            }
-            if (localStorage.getItem('bairro')) {
-                document.getElementById('bairro').value = localStorage.getItem('bairro');
-            }
-            if (localStorage.getItem('rua')) {
-                document.getElementById('rua').value = localStorage.getItem('rua');
-            }
-            if (localStorage.getItem('pais')) {
-                document.getElementById('pais').value = localStorage.getItem('pais');
-            }
-        }
-
-        /* Carregar dados salvos ao carregar a página */
-        window.onload = loadSavedData;
-    </script>
-
+    </form>
 </body>
 
 </html>

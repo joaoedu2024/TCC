@@ -18,7 +18,7 @@
     <div class="register-container">
         <h1>Coloque suas informações</h1>
         <br>
-        <form action="CONTROLLER/cadastrar_endereco.php" method="POST">
+        <form action="controller/cadastrar_endereco.php" method="POST">
             <div class="floating-label-container">
                 <input id="cep" type="text" name="cep" placeholder=" " />
                 <label for="cep">CEP</label>
@@ -51,7 +51,7 @@
 
         <div class="divider">ou</div>
         <br>
-        <a href="cadastro"><button class="register-btn" id="voltarText" type="button">Voltar</button></a>
+        <a href="/Marketplace/cadastro"><button class="register-btn" id="voltarText" type="button">Voltar</button></a>
 
         <div class="terms">
             Ao se registrar, você concorda com nossos Termos de Uso e reconhece que leu nossa Política de Privacidade.
@@ -79,7 +79,6 @@
                             const address = data.address;
 
                             if (address) {
-                                // Preencher os campos automaticamente
                                 document.getElementById('cep').value = address.postcode || "";
                                 document.getElementById('estado').value = address.state || "";
                                 document.getElementById('cidade').value = address.city || address.town || address.village || "";

@@ -159,8 +159,8 @@ body {
 }
 
 .google-btn .google {
-    width: 24px; /* Largura da imagem */
-    height: 24px; /* Altura da imagem */
-    margin-right: 70px; /* Espaço entre a imagem e o texto */
+    width: 24px;
+    height: 24px;
+    margin-right: 70px;
     margin-left: 17px;
 }

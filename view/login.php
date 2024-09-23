@@ -1,5 +1,5 @@
 <?php
-    if (isset($_SESSION['id_perfil'])) { // se já estiver logado vai para menu
+if (isset($_SESSION['id_perfil'])) { // se já estiver logado vai para menu
     header("Location: menu");
     exit();
 }
@@ -24,7 +24,7 @@
         </div>
 
         <br><br>
-        <form action="controller/autenticar.php" method="POST">
+        <form action="/Marketplace/autenticar" method="POST">
             <div class="floating-label-container">
                 <input type="text" name="login" placeholder=" " />
                 <label for="login">Login</label>
@@ -35,16 +35,15 @@
             </div>
 
             <br>
-            <button class="login-btn" id="entrarText">Entrar</button>
+            <button class="login-btn" id="entrarText" type="submit">Entrar</button>
         </form>
         <div class="divider">ou</div>
 
-        <button class="google-btn"><img src="IMAGENS/google.png" class="google">Continuar com o Google</button>
+        <button class="google-btn"><img src="/Marketplace/imagens/google.png" class="google">Continuar com o Google</button>
 
         <div class="forgot-password">
             <a href="#">Esqueceu a senha?</a>
         </div>
     </div>
 </body>
-
 </html>

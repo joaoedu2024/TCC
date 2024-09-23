@@ -12,6 +12,7 @@ $senha = $_POST["senha"];
 
 $sql2 = "INSERT INTO usuarios (login, nome, senha) VALUES (:login, :nome, :senha)";
 
+
 // Prepara a declaração
 $ins2 = $pdo->prepare($sql2);
 
@@ -41,13 +42,12 @@ if ($ins === false || $ins2 === false) {
     die('Prepare failed: ' . htmlspecialchars($pdo->errorInfo()[2]));
 }
 
-if ( $res2 && $res) {
+if ($res2 && $res) {
+    $_SESSION['id_perfil'] = $pdo->lastInsertId(); // Armazena o ID do perfil na sessão
     $_SESSION['cadastro_completo'] = true;
-    header("Location: cadastro1");
-    exit();
+    header("Location: /Marketplace/cadastro1");
 } else {
     echo "Erro: " . implode(", ", $ins->errorInfo()) . " " . implode(", ", $ins2->errorInfo());
-    #$db->rollback();
 }
 
 ?>

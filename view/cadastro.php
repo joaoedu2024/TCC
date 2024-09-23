@@ -22,7 +22,7 @@
         </div>
 
         <br><br>
-        <form action="CONTROLLER/cadastrar.php" method="POST" class="form_register" id="Formulario">
+        <form action="controller/cadastrar.php" method="POST" class="form_register" id="Formulario">
             <div class="floating-label-container">
                 <input type="text" name="login" placeholder=" " />
                 <label for="login">Login</label>
@@ -57,7 +57,7 @@
         </form>
 
         <div class="divider">ou</div>
-        <button class="google-btn"><img src="IMAGENS/google.png" class="google">Continuar com o Google</button>
+        <button class="google-btn"><img src="/Marketplace/imagens/google.png" class="google">Continuar com o Google</button>
         <br>
         <div class="terms">
             Ao se registrar, você concorda com nossos Termos de Uso e reconhece que leu nossa Política de Privacidade.

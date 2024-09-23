@@ -68,7 +68,7 @@ body {
 
 .section {
     margin-bottom: 30px;
-    position: relative; /* Adiciona posicionamento relativo */
+    position: relative;
 }
 
 .section h2 {

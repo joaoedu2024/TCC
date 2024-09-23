@@ -1,7 +1,7 @@
 <?php 
 
 //VARIAVEIS DO PROJETO
-$url = 'http://localhost/tcc/'; //caminho do projeto, url do dominio, sempre por a barra no final
+//$url = 'http://localhost/tcc/'; caminho do projeto, url do dominio, sempre por a barra no final
 $nome_site = '';
 $email_adm = 'admin@gmail.com';
 $endereco_site = 'Rua X, Número 50, Bairro Centro - Belo Horizonte - MG CEP 30214-850';

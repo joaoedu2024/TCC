@@ -1,5 +1,5 @@
 <?php
-require_once("../model/conexao.php");
+require_once(ROOT_PATH . 'model/conexao.php');
 @session_start();
 
 $login = $_POST['login'];
@@ -9,6 +9,11 @@ $query = $pdo->prepare("SELECT * FROM usuarios WHERE login = :login AND senha = 
 $query->bindValue(":login", $login);
 $query->bindValue(":senha", $senha);
 $query->execute();
+
+if($login = '' || $senha == ''){
+    header("Location: /Marketplace/"); 
+    exit();
+}
 
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = count($res);
