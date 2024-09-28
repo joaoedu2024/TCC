@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/Marketplace/view/CSS/sobre.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <script>
-        let usuarioLogado = true; 
+        var usuarioLogado = true;
 
         window.onload = function () {
             if (usuarioLogado) {
@@ -20,18 +20,14 @@
 </head>
 
 <body>
-
     <section class="hero-section">
-        <h1>Ampera</h1>
-        <h2>Conectando Empresas ao Futuro do Mercado</h2>
+        <h1>Bem-vindo à Ampera</h1>
+        <h2>Conectando Vendedores e Compradores</h2>
         <br>
-        <p>Atraia os clientes ideais para o seu negócio com Ampera!
-            Conecte-se com os <b>Produtores</b> e <b>Empresas</b> que valorizam o seu trabalho e desfrute de uma inscrição gratuita, rápida e fácil. Com Ampera,
-            você pode alcançar o público certo e destacar o que torna o seu estabelecimento único.</p>
+        <p>Descubra uma nova forma de fazer negócios com nossa plataforma</p>
     </section>
-
     <section class="features-section">
-        <h2>Alcance as Empresas certas.</h2>
+        <h2>Características</h2>
         <br>
         <div class="features-grid">
             <div class="feature-item">
@@ -52,19 +48,10 @@
                     <p><b>Vantagens:</b> Integração digital, automação, suporte contínuo.</p>
                 </div>
             </div>
-            <div class="feature-item">
-                <img src="/Marketplace/imagens/icone1.png" alt="Icone Segurança">
-                <h3>Segurança</h3>
-                <p>Plataforma segura para proteger seus dados e suas informações.</p>
-                <div class="extra-info">
-                    <p>Adotamos os mais altos padrões de segurança, protegendo suas informações sensíveis.</p>
-                    <p><b>Vantagens:</b> Criptografia avançada, monitoramento 24/7, backups automáticos.</p>
-                </div>
             </div>
         </div>
 
         <section class="features-section">
-            <h2>Acesse um mundo de Produtos.</h2>
             <div class="features-grid">
                 <div class="feature-item">
                     <img src="/Marketplace/imagens/icone3.png" alt="Ícone Escalabilidade">
@@ -76,29 +63,27 @@
                     </div>
                 </div>
                 <div class="feature-item">
-                    <img src="/Marketplace/imagens/icone2.png" alt="Ícone Desempenho">
-                    <h3>Desempenho</h3>
-                    <p>Alto desempenho para garantir a eficiência e agilidade do seu negócio.</p>
+                    <img src="/Marketplace/imagens/icone1.png" alt="Icone Segurança">
+                    <h3>Segurança</h3>
+                    <p>Plataforma segura para proteger seus dados e suas informações.</p>
                     <div class="extra-info">
-                        <p>Alcance a máxima eficiência operacional com nossas ferramentas robustas de desempenho.</p>
-                        <p><b>Vantagens:</b> Melhoria de tempo de resposta, maior agilidade, otimização de recursos.</p>
+                        <p>Adotamos os mais altos padrões de segurança, protegendo suas informações sensíveis.</p>
+                        <p><b>Vantagens:</b> Criptografia avançada, monitoramento 24/7, backups automáticos.</p>
                     </div>
                 </div>
             </div>
         </section>
 
     </section>
-
-    <!-- NOVA SEÇÃO PARALAX -->
     <section class="parallax-section">
         <div class="parallax-content">
-            <h2>Transforme seu Negócio com Ampera</h2>
-            <p>Nossa plataforma fornece soluções inovadoras que capacitam empresas a maximizar seu potencial de crescimento. A tecnologia de ponta, segurança e inovação que oferecemos permite que você atinja novos níveis de excelência no mercado.</p>
+            <h2>Ampera</h2>
+            <p>Atraia os clientes ideais para o seu negócio com Ampera! Conecte-se com os Produtores e Empresas que valorizam o seu Trabalho e desfrute de <br> uma inscrição gratuita, rápida e fácil. Com Ampera, você pode alcançar o público certo e destacar o que torna o seu estabelecimento único.</p>
         </div>
     </section>
 
     <section class="testimonial-section">
-        <h2>O que nossos clientes estão dizendo</h2>
+        <h2>O que nossos clientes estão dizendo?</h2>
         <div class="testimonials-grid">
             <div class="testimonial-item">
                 <p>"Desde que começamos a usar a Ampera, nossos clientes aumentaram significativamente e a plataforma é incrivelmente fácil de usar!"</p>
@@ -113,7 +98,7 @@
                 <h3>- Fernanda Lima, Diretora de TI</h3>
             </div>
             <div class="testimonial-item">
-                <p>"A Ampera transformou a forma como gerenciamos nossos anúncios. O suporte é excepcional!"</p>
+                <p>"A Ampera transformou a forma como gerenciamos nossas demandas. O modo de como o site funciona é excepcional!"</p>
                 <h3>- João Silva, Gerente de Marketing</h3>
             </div>
             <div class="testimonial-item">

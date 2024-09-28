@@ -173,14 +173,14 @@ body {
 
 .features-grid {
     display: grid;
-    gap: 60px; /* Aumenta distância dos cards */
+    gap: 60px; /* Aumenta a distância entre os cards */
     max-width: 1300px; /* Aumenta a largura máxima da grid */
     margin: 0 auto;
 }
 
 .feature-item {
     background-color: white;
-    padding: 40px; /* Aumenta padding interno  */
+    padding: 40px; /* Aumenta o padding interno dos cards */
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     text-align: center;

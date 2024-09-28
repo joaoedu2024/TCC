@@ -44,7 +44,7 @@ if ($total_reg > 0) {
     <div id="ofertas-container">
     </div>
 
-    <br><br>
+    <br><br><br>
 
     <footer>
         <div class="social-icons">
@@ -70,7 +70,7 @@ if ($total_reg > 0) {
                     <h2>${oferta.nome}</h2>
                     <p class="description">${oferta.descricao}</p>
                     <div class="details">
-                        <p>Status: <span class="unavailable">INATIVO</span></p>
+                        <p> <span class="unavailable"></span></p>
                     </div>
                     <a href="#" class="button">Fazer Solicitação</a>
                 </div>

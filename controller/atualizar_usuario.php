@@ -46,6 +46,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['mensagem'] = "Erro ao atualizar as informações.";
         exit;
     }
-
-    
 }
