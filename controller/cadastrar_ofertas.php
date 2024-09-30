@@ -7,6 +7,7 @@ $id_perfil = $_SESSION['id_perfil'];
 var_dump($id_perfil);
 $nome =         $_POST["nome"];
 $descricao =    $_POST["descricao"];
+$categoria =    $_POST["categoria"];
 $contato =      $_POST["contato"];
 $email =        $_POST["email"];
 $status =       $_POST["status"];
@@ -27,8 +28,8 @@ if (isset($_FILES['nome_foto']) && $_FILES['nome_foto']['error'] == UPLOAD_ERR_O
     die("Nenhuma foto enviada.");
 }
 
-$sql = "INSERT INTO ofertas (nome, descricao, contato, email, status, nome_foto, id_perfil) 
-        VALUES (:nome, :descricao, :contato, :email, :status, :nome_foto, :id_perfil);";
+$sql = "INSERT INTO ofertas (nome, descricao, categoria, contato, email, status, nome_foto, id_perfil) 
+        VALUES (:nome, :descricao, :categoria, :contato, :email, :status, :nome_foto, :id_perfil);";
 
 $ins = $pdo->prepare($sql);
 if ($ins === false) {
@@ -37,6 +38,7 @@ if ($ins === false) {
 
 $ins->bindParam(':nome', $nome);
 $ins->bindParam(':descricao', $descricao);
+$ins->bindParam(':categoria', $categoria);
 $ins->bindParam(':contato', $contato);
 $ins->bindParam(':email', $email);
 $ins->bindParam(':status', $status);

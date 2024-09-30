@@ -21,14 +21,30 @@
                 <form action="controller/cadastrar_ofertas.php" method="POST" enctype="multipart/form-data">
                     <input type="text" name="nome" placeholder="Nome da sua Oferta" required>
                     <textarea name="descricao" rows="5" cols="30" placeholder="Digite sua descrição"></textarea>
-                    <textarea name="produto" rows="5" cols="30"
-                        placeholder="Digite as especificações do seu produto"></textarea>
+                    Status: 
+                    <select name="categoria" required>
+                        <option value="Tecnologia">Tecnologia</option>
+                        <option value="Moda e Vestuário">Moda e Vestuário</option>
+                        <option value="Beleza e Cuidados Pessoais">Beleza e Cuidados Pessoais</option>
+                        <option value="Casa e Decoração">Casa e Decoração</option>
+                        <option value="Esportes e Lazer">Esportes e Lazer</option>
+                        <option value="Alimentos e Bebidas">Alimentos e Bebidas</option>
+                        <option value="Automóveis e Acessórios">Automóveis e Acessórios</option>
+                        <option value="Serviços">Serviços</option>
+                        <option value="Brinquedos e Jogos">Brinquedos e Jogos</option>
+                        <option value="Livros, Filmes e Música">Livros, Filmes e Música</option>
+                        <option value="Animais e Acessórios">Animais e Acessórios</option>
+                        <option value="Saúde e Bem-estar">Saúde e Bem-estar</option>
+                        <option value="Eletrônicos e Eletrodomésticos">Eletrônicos e Eletrodomésticos</option>
+                        <option value="Artigos Infantis">Artigos Infantis</option>
+                    </select>
                     <br>
                     Status:
                     <select name="status" required>
                         <option value="A">Ativo</option>
                         <option value="I">Inativo</option>
                     </select>
+
             </div>
             <div class="section">
                 <h2>Foto</h2>

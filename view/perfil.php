@@ -6,7 +6,7 @@ if (!isset($_SESSION['id_perfil'])) {
 }
 $id_usuarios = $_SESSION['id_perfil'];
 
-$sql = "SELECT p.nome, p.email, p.contato, p.cpf_cnpj, p.data_nasc, 
+$sql = "SELECT p.nome, p.email, p.contato, p.cpf_cnpj, p.data_nasc, p.foto_perfil, 
                e.cep, e.estado, e.cidade, e.bairro, e.rua, e.pais
         FROM perfil p
         LEFT JOIN endereco e ON p.id_endereco = e.id
@@ -19,7 +19,7 @@ $perfil = $consulta->fetch(PDO::FETCH_ASSOC);
 if (!$perfil) {
     die("Perfil não encontrado.");
 }
-?>  
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -54,7 +54,7 @@ if (!$perfil) {
             <div class="section profile-image-section">
                 <img id="profileImage" src="/Marketplace/imagens/user.png" alt="Imagem do Perfil">
                 <div class="profile-actions">
-                    <button type="button" class="atualizar" onclick="triggerUpload()">Atualizar imagem de perfil</button>
+                    <button type="button" class="atualizar" name="foto_perfil" onclick="triggerUpload()">Atualizar imagem de perfil</button>
                     <input type="file" id="uploadImage" accept="image/*" style="display: none;" onchange="previewImage(event)">
                     <p>A imagem deve estar em JPEG ou PNG, e não pode ter mais de 10 MB.</p>
                 </div>

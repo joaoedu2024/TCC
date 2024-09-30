@@ -70,7 +70,10 @@ if ($total_reg > 0) {
                     <h2>${oferta.nome}</h2>
                     <p class="description">${oferta.descricao}</p>
                     <div class="details">
-                        <p> <span class="unavailable"></span></p>
+                        <p> 
+                        <span class="unavailable">${oferta.id_perfil}</span><br><br>
+                        <span class="unavailable">${oferta.categoria}</span>
+                        </p>
                     </div>
                     <a href="#" class="button">Fazer Solicitação</a>
                 </div>

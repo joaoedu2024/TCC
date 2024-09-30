@@ -9,7 +9,7 @@ if (!isset($_SESSION['id_perfil'])) {
     exit();
 }
 
-$sql = "SELECT nome, descricao, contato, email, nome_foto FROM ofertas WHERE status = 'A' AND id_perfil = :id_perfil";
+$sql = "SELECT nome, descricao, categoria, contato, email, nome_foto, id_perfil FROM ofertas WHERE status = 'A' #AND id_perfil = :id_perfil";
 $query = $pdo->prepare($sql);
 $query->bindParam(':id_perfil', $_SESSION['id_perfil'], PDO::PARAM_INT);
 $query->execute();
