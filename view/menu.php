@@ -9,8 +9,16 @@ $total_reg = @count($res);
 if ($total_reg > 0) {
     $login = $res[0]['login'];
 }
-?>
 
+$cons = $pdo->query("SELECT foto_perfil FROM perfil WHERE id = '$id'");
+$resp = $cons->fetchAll(PDO::FETCH_ASSOC);
+
+if ($total_reg > 0) {
+   
+    $foto_perfil = $resp[0]['foto_perfil'] ? $resp[0]['foto_perfil'] : 'user.png'; // Usa uma imagem padrão se não houver foto de perfil
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,7 +28,7 @@ if ($total_reg > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Painel - Ampera</title>
     <link rel="stylesheet" type="text/css" href="/Marketplace/view/CSS/index.css">
-	<link rel="stylesheet" type="text/css" href="/Marketplace/view/CSS/menu.css">
+    <link rel="stylesheet" type="text/css" href="/Marketplace/view/CSS/menu.css">
 </head>
 
 <body>
@@ -31,13 +39,14 @@ if ($total_reg > 0) {
         </div>
         <div class="user">
             <div class="menu">
-				<a href="ofertas">Ofertas</a>
+                <a href="ofertas">Ofertas</a>
                 <a href="sobre">Sobre</a>
                 <a href="criar-oferta">Crie sua Oferta</a>
                 <a href="perfil">Perfil</a>
                 <span><?php echo $login; ?></span>
             </div>
-            <a href="/Marketplace/logout"><img src="./imagens/user.png" alt="User Avatar"></a>
+            <a href="/Marketplace/logout"><img src="/Marketplace/imagens/<?= $foto_perfil ?>" alt="User Avatar"></a>
+
         </div>
     </nav>
 

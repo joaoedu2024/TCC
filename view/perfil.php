@@ -49,14 +49,14 @@ if (!$perfil) {
 </head>
 
 <body>
-    <form action="controller/atualizar_usuario.php" method="POST">
+    <form action="controller/atualizar_usuario.php" method="POST" enctype="multipart/form-data">
         <div class="container">
             <div class="section profile-image-section">
-                <img id="profileImage" src="/Marketplace/imagens/user.png" alt="Imagem do Perfil">
+                <img id="profileImage" src="/Marketplace/imagens/<?= $perfil['foto_perfil']?>" alt="Imagem do Perfil">
                 <div class="profile-actions">
                     <button type="button" class="atualizar" name="foto_perfil" onclick="triggerUpload()">Atualizar imagem de perfil</button>
                     <input type="file" id="uploadImage" accept="image/*" style="display: none;" onchange="previewImage(event)">
-                    <p>A imagem deve estar em JPEG ou PNG, e não pode ter mais de 10 MB.</p>
+                    <p>A imagem deve estar em JPG, JPEG ou PNG, e não pode ter mais de 10 MB.</p>
                 </div>
             </div>
 
